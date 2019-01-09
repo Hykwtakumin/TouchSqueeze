@@ -1,0 +1,17 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+</head>
+<body>
+<h1><%= title %></h1>
+<% filterdList.forEach((item, index) => { %>
+<div class="pageContainer">
+    <a href=" <%- `https://scrapbox.io/touchsqueeze/${item.title}` %> "><h3 class="titleHeader"> <%- item.title %> </h3>
+    </a>
+    <a href=" <%- `https://scrapbox.io/touchsqueeze/${item.title}` %> "> <img src=" <%- item.image %> " alt="画像"
+                                                                              class="images"> </a>
+</div>
+<% }) %>
+</body>
+</html>
