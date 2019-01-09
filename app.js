@@ -9,9 +9,8 @@ app.get("/", async (req, res) => {
     const scrapboxData = await getScrapBox();
     res.render('index', {
         title: "Hello Express",
-        content: "ポーリング中です."
+        filterdList: scrapboxData
     });
-    //res.send(scrapboxData);
 });
 
 app.get("/api/:id", async (req, res) => {
@@ -19,7 +18,11 @@ app.get("/api/:id", async (req, res) => {
     if (req.params.id == "1111") {
         const scrapboxData = await getScrapBox();
         const filteredData = scrapboxData.pages.filter(page => page.descriptions.includes("#湘南台"));
-        res.send(filteredData);
+        //res.send(filteredData);
+        res.render("filteredList", {
+            title: "湘南台のお店",
+            filterdList: filteredData
+        });
     }
     ;
 });
